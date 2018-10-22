@@ -37,6 +37,7 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-devtools')
+	compile('org.apache.commons:commons-lang3:3.0')
 	compile('javax.servlet:jstl')
 
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
