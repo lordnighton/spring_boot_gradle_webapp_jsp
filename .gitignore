@@ -24,3 +24,9 @@ gradle-app.setting
 
 # IntelliJ IDEA
 .idea
+
+.classpath
+.project
+.settings/
+.vscode/
+Bin/
