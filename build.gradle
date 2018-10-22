@@ -17,7 +17,8 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'war'
 
 bootRun {
-	jvmArgs = ["-agentlib:jdwp=transport=dt_socket,server=y,address=8080,suspend=n"]
+	jvmArgs = ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n"]
+	args += ["--server.port=8000"]
 }
 
 war {
