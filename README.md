@@ -5,6 +5,15 @@ This is a Hello-world application that shows how to run / debug / update web app
 * Gradle
 * JSP
 
+Show all available tasks:
+
+    gradle tasks --all
+
+
+Show all properties:
+
+    gradle properties
+
 You can clean `target` folder by running the following command at the command prompt:
 
     gradle clean
