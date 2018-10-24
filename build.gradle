@@ -29,8 +29,6 @@ war {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-version = 0.1
-
 repositories {
 	mavenCentral()
 }
@@ -39,13 +37,50 @@ task props << {
     println("My property = " + project.external)
 }
 
-task printVersion {
+task beforePrint {
+	doFirst {
+		println "Before print"
+	}
+}
+
+class VersionSpecifier {
+	Integer major;
+	Integer minor;
+
+	VersionSpecifier(Integer major, Integer minor) {
+		this.major = major
+		this.minor = minor
+	}
+
+	@Override
+	String toString() {
+		"Major = $major, Minor = $minor"
+	}
+}
+
+version = new VersionSpecifier(1,0)
+
+task printVersion(dependsOn: [beforePrint]) {
 	group = 'Versioning'
 	description = 'Printing the version of a project'
 
 	doLast {
 		println "Project version = $version"
 		logger.quiet "Logging the version = $version"
+	}
+}
+
+project.ext.fileToRead = file('fileToRead.txt')
+
+task readFile() {
+	logger.quiet "Reading the file $project.fileToRead"
+
+	if (project.fileToRead.exists()) {
+		println "Exists"
+		String fileContents = project.fileToRead.text
+		println "Contents => [ $fileContents ]"
+	} else {
+		throw new GradleException("File not found -- $project.fileToRead")
 	}
 }
 
