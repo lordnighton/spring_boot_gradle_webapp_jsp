@@ -35,6 +35,20 @@ repositories {
 	mavenCentral()
 }
 
+task props << {
+    println("My property = " + project.external)
+}
+
+task printVersion {
+	group = 'Versioning'
+	description = 'Printing the version of a project'
+
+	doLast {
+		println "Project version = $version"
+		logger.quiet "Logging the version = $version"
+	}
+}
+
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-devtools')
