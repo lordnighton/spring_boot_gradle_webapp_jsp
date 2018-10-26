@@ -9,6 +9,8 @@
 hs_err_pid*
 
 ### Gradle ###
+buildSrc/.gradle
+buildSrc/build
 .gradle/
 /build/
 /out/

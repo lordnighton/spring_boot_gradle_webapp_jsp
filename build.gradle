@@ -1,3 +1,5 @@
+import com.gradle.helpers.GradlePrinter;
+
 buildscript {
 	ext {
 		springBootVersion = '2.0.4.RELEASE'
@@ -70,9 +72,13 @@ task printVersion(dependsOn: [beforePrint]) {
 	}
 }
 
+task printBuildName << {
+	GradlePrinter.printBuildName();
+}
+
 project.ext.fileToRead = file('fileToRead.txt')
 
-task readFile() {
+task readFile() << {
 	logger.quiet "Reading the file $project.fileToRead"
 
 	if (project.fileToRead.exists()) {
@@ -82,6 +88,22 @@ task readFile() {
 	} else {
 		throw new GradleException("File not found -- $project.fileToRead")
 	}
+}
+
+task packBundle(type: Zip) {
+	archiveName 'bundle.zip'
+	destinationDir = file("${projectDir}/dist")
+
+	from "${projectDir}/src"
+
+	doLast {
+		println "Bundling is over"
+	}
+}
+
+task removeDist(type: Delete) {
+	delete = "${projectDir}/dist"
+  	followSymlinks = true
 }
 
 dependencies {
