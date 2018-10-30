@@ -72,6 +72,12 @@ task printVersion(dependsOn: [beforePrint]) {
 	}
 }
 
+task printLocalCacheDirs << {
+	configurations.getByName('compile').each { dep -> 
+		println dep
+	}
+}
+
 task printBuildName << {
 	GradlePrinter.printBuildName();
 }
