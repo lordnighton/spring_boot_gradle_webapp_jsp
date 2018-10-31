@@ -112,6 +112,14 @@ task removeDist(type: Delete) {
   	followSymlinks = true
 }
 
+test {
+	testLogging {
+		showStandardStreams = true
+		exceptionFormat 'full'
+		events 'started', 'passed', 'skipped', 'failed'
+	}
+}
+
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-devtools')
