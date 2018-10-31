@@ -121,3 +121,7 @@ dependencies {
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 	providedRuntime('org.apache.tomcat.embed:tomcat-embed-jasper')
 }
+
+task sayHello << {
+	println "Hello from ROOT project"
+}
