@@ -118,6 +118,11 @@ dependencies {
 	compile('org.apache.commons:commons-lang3:3.0')
 	compile('javax.servlet:jstl')
 
+	testCompile group: 'junit', name: 'junit', version: '4.12'
+	testCompile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
+	testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '1.3'
+	testCompile group: 'org.mockito', name: 'mockito-core', version: '1.9.+'
+
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 	providedRuntime('org.apache.tomcat.embed:tomcat-embed-jasper')
 }

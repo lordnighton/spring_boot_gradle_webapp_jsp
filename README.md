@@ -29,3 +29,8 @@ When the application is running, you can access it by going to the url address:
 Run the task with `--scan` node to check the details of the build using the detailed web view:
 
     gradle build --scan
+
+Run jUnit tests:
+
+    gradle test
+    // the results will be in build/reports/tests/test/index.html
