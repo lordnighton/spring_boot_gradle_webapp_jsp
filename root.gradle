@@ -149,3 +149,9 @@ check.dependsOn integrationTests
 task sayHello << {
 	println "Hello from ROOT project"
 }
+
+ant.importBuild("ant/build.xml")
+
+hello << {
+	println "One more hello!"
+}
