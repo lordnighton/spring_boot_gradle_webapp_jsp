@@ -1,6 +1,8 @@
-package com.test.bootstrap.services;
+package com.test.bootstrap.unit;
 
 import static org.junit.Assert.*;
+
+import com.test.bootstrap.services.StringService;
 import org.junit.*;
 
 public class StringServiceTests {
