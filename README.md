@@ -34,3 +34,13 @@ Run jUnit tests:
 
     gradle test
     // the results will be in build/reports/tests/test/index.html
+
+Run SonarCube analysis
+- brew install sonar
+- sonar start # to start a local Sonar at localhost:9000, could be checked
+- Code changes:
+  - plugin
+  - build dependency
+- ./gradlew sonarqube -Dsonar.host.url=http://localhost:9000/
+- Visit localhost:9000 to show the results fo analysis
+- sonar stop # to stop Sonar instance

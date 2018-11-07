@@ -6,9 +6,13 @@ buildscript {
 	}
 	repositories {
 		mavenCentral()
+		maven {
+            url "https://plugins.gradle.org/m2/"
+        }
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    	classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6'
 	}
 }
 
@@ -17,6 +21,7 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'war'
+apply plugin: 'org.sonarqube'
 
 bootRun {
 	jvmArgs = ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n"]
@@ -152,6 +157,11 @@ task sayHello << {
 
 ant.importBuild("ant/build.xml")
 
-hello << {
-	println "One more hello!"
+hello {
+	doFirst {
+		println "[before] Ant hello task"
+	}
+	doLast {
+        println "[after] Ant hello task"
+    }
 }
