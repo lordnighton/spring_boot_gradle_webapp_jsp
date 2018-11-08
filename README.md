@@ -44,3 +44,7 @@ Run SonarCube analysis
 - ./gradlew sonarqube -Dsonar.host.url=http://localhost:9000/
 - Visit localhost:9000 to show the results fo analysis
 - sonar stop # to stop Sonar instance
+
+Run Swagger Codegen
+ ./gradlew generateSwaggerCode
+ // Results --> gradle_boot/build/swagger-code-petstore/src/main/java/io/swagger/model
