@@ -157,6 +157,13 @@ task sayHello << {
 
 ant.importBuild("ant/build.xml")
 
+task helloFromAnt {
+    doLast {
+        String greeting = 'hello from Ant'
+        ant.echo(message: greeting)
+    }
+}
+
 hello {
 	doFirst {
 		println "[before] Ant hello task"
