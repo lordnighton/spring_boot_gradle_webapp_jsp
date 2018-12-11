@@ -73,7 +73,7 @@ class VersionSpecifier {
 
 	@Override
 	String toString() {
-		"Major = $major, Minor = $minor"
+		"$major.$minor"
 	}
 }
 
